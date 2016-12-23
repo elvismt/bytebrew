@@ -16,6 +16,7 @@
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.contrib import admin
 
 
 @python_2_unicode_compatible
@@ -26,3 +27,8 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.post_title
+
+
+@python_2_unicode_compatible
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('post_title', 'post_date')

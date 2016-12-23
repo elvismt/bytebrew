@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from django.template import loader, Context
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import BlogPost
@@ -24,6 +25,7 @@ def index(request):
 
 
 def latest(request):
-    post = BlogPost.get_latest_by('date published')
-    html = '\n'.join([post.post_title, post.post_text, post.post_date])
-    return HttpResponse(html)
+    posts = BlogPost.objects.all()
+    template = loader.get_template("blogslist.html")
+    context = Context({ 'posts': posts })
+    return HttpResponse(template.render(context))
