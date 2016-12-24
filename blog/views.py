@@ -1,5 +1,3 @@
-# bytebrew/blogs/views.py is part of bytebrew's site
-#
 # Copyright (C) 2016 Elvis M Teixeira
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,11 +19,15 @@ from .models import BlogPost
 
 
 def index(request):
-    return HttpResponse("Hello! You are at the index.")
+    posts = BlogPost.objects.all()
+    template = loader.get_template("blog/blogindex.html")
+    context = Context({
+        'page_title': 'ByteBrew',
+        'posts': posts,
+        'blog_index_footer': 'Copyright (C) 2016 Elvis Teixeira',
+    })
+    return HttpResponse(template.render(context))
 
 
 def latest(request):
-    posts = BlogPost.objects.all()
-    template = loader.get_template("blogslist.html")
-    context = Context({ 'posts': posts })
-    return HttpResponse(template.render(context))
+    return HttpResponse("<h1>The latest post!</h1>")

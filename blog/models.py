@@ -1,5 +1,3 @@
-# bytebrew/blog/models.py is part of bytebrew's site
-#
 # Copyright (C) 2016 Elvis M Teixeira
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

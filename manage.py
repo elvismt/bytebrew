@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# bytebrew/manage.py is part of bytebrew's site
-#
+#!/usr/bin/env python3
 # Copyright (C) 2016 Elvis M Teixeira
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
